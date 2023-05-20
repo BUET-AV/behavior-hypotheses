@@ -29,7 +29,11 @@ class TrajectoryVisualizer:
             diff = 0
             trackDf = df[df[idCol] == trackId]
             plt.plot(trackDf[xCol], trackDf[yCol])
+            if False:
+                for i in range(len(trackDf[xCol])):
+                    ax.plot([trackDf[xCol][i], 0], [trackDf[yCol][i], trackDf[yCol][i]])
             # ax.set_xlabel('Sample Value', fontsize=20)
+            
 
             # plot direction
             lastRow = trackDf.tail(1)
@@ -54,8 +58,8 @@ class TrajectoryVisualizer:
         
         
         
-        plt.plot(avg_displacement_error, 0, marker='x', color="red")
-        plt.axvline(x=avg_displacement_error, color='r', linestyle='--')
+        # plt.plot(avg_displacement_error, 0, marker='x', color="red")
+        # plt.axvline(x=avg_displacement_error, color='r', linestyle='--')
         plt.axvline(x=0, color='r', linestyle='--')
         
         ax.set_xlabel('Lateral Shift (m)')
@@ -73,6 +77,5 @@ class TrajectoryVisualizer:
         # for scene 30 endvis
         # plt.ylim(0,7)
         # plt.xlim(-1,8)
-        # plt.savefig("pushapuektaproblem")
         plt.tight_layout()
         plt.show()
