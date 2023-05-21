@@ -29,8 +29,6 @@ class TrajectoryTestingCalculator:
     
     def getT_statistic_p_value(self, tracksDf : pd.DataFrame, idCol, xCol, yCol):
         
-        print(type(idCol))
-        
         sampleDf1 = sampler.getRandom(tracksDf, idCol = 'uniqueTrackId', n=10)
         aade1 = adeCalculator.getAADE(sampleDf1, idCol, xCol, yCol)
         ades1 = adeCalculator.getADEs(sampleDf1, idCol = 'uniqueTrackId', xCol = 'localX', yCol = 'localY')
@@ -42,6 +40,28 @@ class TrajectoryTestingCalculator:
         print(aade2)
         
         t_statistic, p_value = stats.ttest_ind(ades1, ades2)
+        
+        alpha_value = 0.005
+
+        # Print the results
+        print("T-Statistic:", t_statistic)
+        print("P-Value:", p_value)
+        
+        if(p_value<alpha_value):
+            print("The null hypothesis is rejected")
+        else:
+            print("The null hypothesis is accepted")
+        
+        
+        
+        return t_statistic,p_value
+    
+    
+    def getTstatistic_pValue_adeslist(self, ades, population_mean):
+        
+        # print(ades)
+        # print(population_mean)
+        t_statistic, p_value = stats.ttest_1samp(ades, population_mean)
         
         alpha_value = 0.005
 
