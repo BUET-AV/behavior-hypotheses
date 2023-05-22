@@ -41,16 +41,13 @@ class TrajectoryTestingCalculator:
         
         t_statistic, p_value = stats.ttest_ind(ades1, ades2)
         
-        alpha_value = 0.005
+        alpha_value = 0.05
 
-        # Print the results
-        print("T-Statistic:", t_statistic)
-        print("P-Value:", p_value)
+#         # Print the results
+#         print("T-Statistic:", t_statistic)
+#         print("P-Value:", p_value)
         
-        if(p_value<alpha_value):
-            print("The null hypothesis is rejected")
-        else:
-            print("The null hypothesis is accepted")
+        
         
         
         
@@ -63,16 +60,15 @@ class TrajectoryTestingCalculator:
         # print(population_mean)
         t_statistic, p_value = stats.ttest_1samp(ades, population_mean)
         
-        alpha_value = 0.005
+        alpha_value = 0.05
 
         # Print the results
-        print("T-Statistic:", t_statistic)
-        print("P-Value:", p_value)
+       
         
-        if(p_value<alpha_value):
-            print("The null hypothesis is rejected")
-        else:
-            print("The null hypothesis is accepted")
+        # if(p_value<alpha_value):
+        #     print("The null hypothesis is rejected")
+        # else:
+        #     print("The null hypothesis is accepted")
         
         
         
