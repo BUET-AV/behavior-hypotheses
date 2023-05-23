@@ -1,5 +1,6 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
+tti_dataset_tools/__pycache__/
 *.py[cod]
 *$py.class
 
