@@ -5,8 +5,8 @@ try:
 except ValueError: # Already removed
     pass
 
-# projectFolder = '/home/ababil/BUET/AV/Behavior Hypotheses/behavior-hypotheses/src'
-projectFolder = 'D:\\AV\\Code\\behavior-hypotheses\\src'
+projectFolder = "/home/ababil/BUET/AV/Behavior Hypotheses/behavior-hypotheses/src/"
+# projectFolder = 'D:\\AV\\Code\\behavior-hypotheses\\src'
 # projectFolder = 'F:/behavior-hypothesis/src'
 sys.path.append(str(projectFolder))
 os.chdir(projectFolder)
