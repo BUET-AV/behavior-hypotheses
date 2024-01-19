@@ -67,6 +67,13 @@ class AngularDisplacementCalculator:
 
     def getPedIdList(df):
         return list(df["uniqueTrackId"].unique())
+    
+    def getMaxSpeed(df):
+        return max(df["speed"])
+    
+    def getMeanSpeed(df):
+        return np.mean(list(i for i in df["speed"]))
+    
 
     # create a dataframe with the following columns:
     # pedId, maxAngularDisplacement, minAngularDisplacement, meanAbsoluteAngularDisplacement, meanAngularDisplacement,
@@ -82,6 +89,8 @@ class AngularDisplacementCalculator:
         # minRelativeAngularDisplacements = []
         meanAbsoluteRelativeAngularDisplacements = []
         meanRelativeAngularDisplacements = []
+        maxSpeeds = []
+        meanSpeeds = []
         for pedId in pedIds:
             pedDf = df[df["uniqueTrackId"] == pedId].copy()
             counts.append(pedDf.shape[0])
@@ -95,7 +104,9 @@ class AngularDisplacementCalculator:
             # minRelativeAngularDisplacements.append(AngularDisplacementCalculator.getMinRelativeAngularDisplacement(pedDf))
             meanAbsoluteRelativeAngularDisplacements.append(AngularDisplacementCalculator.getMeanAbsoluteRelativeAngularDisplacement(pedDf))
             meanRelativeAngularDisplacements.append(AngularDisplacementCalculator.getMeanRelativeAngularDisplacement(pedDf))
-        print(len(pedIds))
+            maxSpeeds.append(AngularDisplacementCalculator.getMaxSpeed(pedDf))
+            meanSpeeds.append(AngularDisplacementCalculator.getMeanSpeed(pedDf))
+        # print(len(pedIds))
         return pd.DataFrame({
             "uniqueTrackId": pedIds,
             "count": counts,
@@ -106,5 +117,7 @@ class AngularDisplacementCalculator:
             "maxRelativeAngularDisplacement": maxRelativeAngularDisplacements,
             # "minRelativeAngularDisplacement": minRelativeAngularDisplacements,
             "meanAbsoluteRelativeAngularDisplacement": meanAbsoluteRelativeAngularDisplacements,
-            "meanRelativeAngularDisplacement": meanRelativeAngularDisplacements
+            "meanRelativeAngularDisplacement": meanRelativeAngularDisplacements,
+            "maxSpeed": maxSpeeds,
+            "meanSpeed": meanSpeeds
         })
