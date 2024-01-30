@@ -27,11 +27,18 @@ class AngularDisplacementCalculator:
         df["angularDisplacement"] = angularDisplacements
         return df
 
+
+    # Using this
     def addRelativeAngularDisplacement(df):
         relAngularDisplacements = []
         relAngularDisplacements.append(0)
-        for i in range(1, df.shape[0]):
+        relAngularDisplacements.append(0)
+        
+        for i in range(2, df.shape[0]):
             if df.iloc[i]["uniqueTrackId"] != df.iloc[i-1]["uniqueTrackId"]:
+                relAngularDisplacements.append(0)
+                continue
+            if df.iloc[i]["uniqueTrackId"] == df.iloc[i-1]["uniqueTrackId"] and df.iloc[i]["uniqueTrackId"] != df.iloc[i-2]["uniqueTrackId"]:
                 relAngularDisplacements.append(0)
                 continue
             x1 = df.iloc[i-1]["localX"]
@@ -41,6 +48,8 @@ class AngularDisplacementCalculator:
             relAngularDisplacements.append(AngularDisplacementCalculator.getAngularDisplacement(x1, y1, x2, y2))
         df = df.copy()
         df["relativeAngularDisplacement"] = relAngularDisplacements
+        # add absolute angular displacement
+        df["absoluteAngularDisplacement"] = abs(df["relativeAngularDisplacement"])
         return df
 
     def getMaxAngularDisplacement(df):
