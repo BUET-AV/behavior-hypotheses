@@ -31,6 +31,9 @@ class AngularDisplacementCalculator:
         relAngularDisplacements = []
         relAngularDisplacements.append(0)
         for i in range(1, df.shape[0]):
+            if df.iloc[i]["uniqueTrackId"] != df.iloc[i-1]["uniqueTrackId"]:
+                relAngularDisplacements.append(0)
+                continue
             x1 = df.iloc[i-1]["localX"]
             y1 = df.iloc[i-1]["localY"]
             x2 = df.iloc[i]["localX"]

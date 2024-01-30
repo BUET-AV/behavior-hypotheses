@@ -1,15 +1,10 @@
-# Metrics to be discussed
+# Checkpoints
 
-| Metric | Merits | Demerits |
-|--------|--------|----------|
-| Top Speed |        | Does not capture trajectory motion |
-| Final Displacement |        |          |
-| Avg Speed |        |          |
-| Avg Acceleration |        |          |
-| Avg Angular Velocity |        |          |
-| Top Angular Velocity |        |          |
-
-# TODO
-
-## Methodology for different metrics
-
+- Sectioning the crossroad
+- Our previous approaches and shortcomings
+    - Range not available
+    - Outside influence (e.g. traffic)
+- Final approach
+    - Local motion/movement capacity
+    - Relationship between speed and heading direction change
+    
