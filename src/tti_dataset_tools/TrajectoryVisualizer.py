@@ -60,7 +60,7 @@ class TrajectoryVisualizer:
         
         # plt.plot(avg_displacement_error, 0, marker='x', color="red")
         # plt.axvline(x=avg_displacement_error, color='r', linestyle='--')
-        plt.axvline(x=0, color='r', linestyle='--')
+        # plt.axvline(x=0, color='r', linestyle='--')
         
         ax.set_xlabel('Lateral Shift (m)')
         ax.set_ylabel('Road Width (m)')
