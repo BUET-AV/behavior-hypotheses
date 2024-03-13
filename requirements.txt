@@ -1,4 +1,8 @@
 tti_dataset_tools==0.1.11
 pandas==1.5.2
-numpy==1.20.3
-shapely=1.8.5
+numpy>=1.20.3
+shapely==1.8.5
+pandas
+seaborn
+matplotlib
+numpy
