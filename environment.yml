@@ -6,4 +6,4 @@ dependencies:
   - python=3.8.15
   - seaborn
   - jupyterlab
-prefix: C:\Users\adhocmaster\.conda\envs\TTI
+prefix: ~/anaconda3/envs/TTI/
