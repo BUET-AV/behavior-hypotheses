@@ -26,6 +26,49 @@ class AngularDisplacementCalculator:
         df = df.copy()
         df["angularDisplacement"] = angularDisplacements
         return df
+    
+    #######################################################
+    def getAbsoluteAngularDisplacementTable(df):
+        angularDisplacementTable=[]
+        cumulativeAngularDisplacement=0
+        temporaryCumulativeAngularDisplacement=0
+        rowSize=df.shape[0]
+        frame=df.iloc[0]["frame"]
+        
+
+        for i in range(0, df.shape[0]):
+            if(i%5 == 0):
+                frame=df.iloc[i]["frame"]
+                
+            temporaryCumulativeAngularDisplacement+=df.iloc[i]["absoluteAngularDisplacement"]
+            cumulativeAngularDisplacement+=df.iloc[i]["absoluteAngularDisplacement"]
+            if((i+1)%5 == 0 or i==rowSize-1):
+                angularDisplacementTable.append((frame,temporaryCumulativeAngularDisplacement))
+                temporaryCumulativeAngularDisplacement=0
+        return angularDisplacementTable
+
+    #######################################################
+    def getRelativeAngularDisplacementTable(df):
+        angularDisplacementTable=[]
+        cumulativeAngularDisplacement=0
+        temporaryCumulativeAngularDisplacement=0
+        rowSize=df.shape[0]
+        frame=df.iloc[0]["frame"]
+        
+
+        for i in range(0, df.shape[0]):
+            if(i%5 == 0):
+                frame=df.iloc[i]["frame"]
+                
+            temporaryCumulativeAngularDisplacement+=df.iloc[i]["relativeAngularDisplacement"]
+            cumulativeAngularDisplacement+=df.iloc[i]["relativeAngularDisplacement"]
+            if((i+1)%5 == 0 or i==rowSize-1):
+                angularDisplacementTable.append((frame,temporaryCumulativeAngularDisplacement))
+                temporaryCumulativeAngularDisplacement=0
+        return angularDisplacementTable
+
+
+
 
 
     # Using this

@@ -5,9 +5,11 @@ try:
 except ValueError: # Already removed
     pass
 
-projectFolder = "/home/torr20/Documents/project-autonomous vehicle/behavior-hypotheses/src"
+projectFolder = 'C:\\Users\\ASUS\\Desktop\\buetav\\behavior-hypotheses-main\\src'
 # projectFolder = 'D:\\AV\\Code\\behavior-hypotheses\\src'
 # projectFolder = 'F:/behavior-hypothesis/src'
-sys.path.append(str(projectFolder))
-os.chdir(projectFolder)
-print( f"current working dir{os.getcwd()}")
+#sys.path.append(str(projectFolder))
+#os.chdir(projectFolder)
+#print( f"current working dir{os.getcwd()}")
+
+# import os
