@@ -26,7 +26,6 @@ class AngularDisplacementCalculator:
         df = df.copy()
         df["angularDisplacement"] = angularDisplacements
         return df
-    
     #######################################################
     def getAbsoluteAngularDisplacementTable(df):
         angularDisplacementTable=[]
@@ -66,7 +65,6 @@ class AngularDisplacementCalculator:
                 angularDisplacementTable.append((frame,temporaryCumulativeAngularDisplacement))
                 temporaryCumulativeAngularDisplacement=0
         return angularDisplacementTable
-
 
 
 
